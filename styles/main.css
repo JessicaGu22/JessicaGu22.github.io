@@ -10,13 +10,15 @@ table, th, td {
     color: rgb(238, 81, 18);
   }
 
+  .button2 {
+    background-color: bisque;
+    border: 1px black solid;
+    text-decoration: none;
+  }
+
   .button {
     background-color: bisque;
     border: 1px black solid;
     text-decoration: none;
   }
-  .button#2 {
-    background-color: bisque;
-    border: 1px black solid;
-    text-decoration: none;
-  }
+ 
