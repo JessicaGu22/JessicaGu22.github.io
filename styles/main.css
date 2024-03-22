@@ -38,6 +38,6 @@ table, th, td {
   border: 5px purple solid;
   padding: 0% 36%;
  }
- a:link {
+ a:link:hover {
   color:green
  }
