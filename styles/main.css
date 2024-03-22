@@ -29,12 +29,15 @@ table, th, td {
  .meat {
   color:hotpink;
   border-bottom: 10px dotted purple;
-}
-.leo{
+ }
+ .leo{
   font-style:italic;
-}
-.study{
+ }
+ .study{
   background-color:#eeeeee;
   border: 5px purple solid;
   padding: 0% 36%;
-}
+ }
+ a:link {
+  color:green
+ }
