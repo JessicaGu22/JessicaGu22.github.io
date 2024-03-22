@@ -26,4 +26,15 @@ table, th, td {
   .apple {
     font-size:160%;
   }
- 
+ .meat {
+  color:hotpink;
+  border-bottom: 10px dotted purple;
+}
+.leo{
+  font-style:italic;
+}
+.study{
+  background-color:#eeeeee;
+  border: 5px purple solid;
+  padding: 0% 36%;
+}
