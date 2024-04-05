@@ -2,10 +2,12 @@
 .hover-highlight-card {
     background-color: rgb(152, 238, 170);
     padding: 20px;
-
+    transition: background-color 3s;
+    transition: box-shadow 3s;
 }
 .hover-highlight-card:hover {
      box-shadow: 10px 5px 5px red;
+     background-color: rgb(238, 152, 205);
 }
 
 /* Task 2: Animated Navigation Menu */
@@ -15,24 +17,26 @@
     display: flex;
     gap: 30px;
     background-color: rgb(118, 175, 212);
-    transition: color 5s, background-color 5s; 
+    transition: background-color 3s; 
 }
 
 .animated-nav-menu ul:hover {
-    color: black;
     background-color: #7c2424;
 }
 
 .animated-nav-menu a {
     text-decoration: none;
-    border-radius: 10%;
-    padding: 4px;
+    border-radius: 15%;
+    padding: 10px;
     color: #000000;
-    background-color: white;
+    background-color: rgb(124, 211, 214);
+    transition: color 3s, background-color 3s;
 }
 
 .animated-nav-menu a:hover {
-    color: black;
+    color: rgb(40, 55, 194);
+    background-color: rgb(124, 214, 143);
+
 }
 
 /* Task 3: Button Press Animation */
@@ -43,6 +47,10 @@
     color: white;
     cursor: pointer;
 }
+
+.button-press-animation button:active {
+    box-shadow: 7px 7px 7px #994dfc;
+  }
 
 /* Task 4: Simple Loading Spinner */
 .simple-loading-spinner .spinner {
@@ -59,6 +67,9 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+
+
 .fading-gallery img {
     width: 100px;
     height: 100px;
