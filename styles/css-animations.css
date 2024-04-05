@@ -1,22 +1,38 @@
 /* Task 1: Hover Highlight Card */
 .hover-highlight-card {
+    background-color: rgb(152, 238, 170);
     padding: 20px;
+
+}
+.hover-highlight-card:hover {
+     box-shadow: 10px 5px 5px red;
 }
 
 /* Task 2: Animated Navigation Menu */
 .animated-nav-menu ul {
     list-style: none;
-    padding: 0;
+    padding: 40;
     display: flex;
-    gap: 10px;
+    gap: 30px;
+    background-color: rgb(118, 175, 212);
+    transition: color 5s, background-color 5s; 
+}
+
+.animated-nav-menu ul:hover {
+    color: black;
+    background-color: #7c2424;
 }
 
 .animated-nav-menu a {
     text-decoration: none;
     border-radius: 10%;
     padding: 4px;
-    color: #00aaff;
+    color: #000000;
     background-color: white;
+}
+
+.animated-nav-menu a:hover {
+    color: black;
 }
 
 /* Task 3: Button Press Animation */
