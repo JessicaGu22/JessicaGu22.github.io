@@ -81,4 +81,12 @@
     width: 100px;
     height: 100px;
     object-fit: cover;
+    opacity: 0.5;
+    transition: opacity 0.3, transform 0.3s;
+}
+
+.fading-gallery :hover {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.25);
+    box-shadow: 7px 7px 7px #994dfc;
 }
