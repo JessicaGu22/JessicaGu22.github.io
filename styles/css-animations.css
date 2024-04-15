@@ -40,13 +40,13 @@
 .button-press-animation button {
     padding: 10px 20px;
     border: none;
-    background-color: #00aaff;
+    background-color: #31a0d8;
     color: white;
     cursor: pointer;
 }
 
 .button-press-animation button:active {
-    box-shadow: 7px 7px 7px #994dfc;
+    box-shadow: 7px 7px 7px #336fbd;
   }
 
 /* Task 4: Simple Loading Spinner */
@@ -85,5 +85,5 @@
 .fading-gallery :hover {
     opacity: 1;
     transform: translateY(-20px) scale(1.25);
-    box-shadow: 7px 7px 7px #994dfc;
+    box-shadow: 7px 7px 7px #df85d3;
 }
