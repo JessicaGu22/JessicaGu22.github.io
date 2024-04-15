@@ -1,6 +1,5 @@
 /* Task 1: Hover Highlight Card */
 .hover-highlight-card {
-    background-color: rgb(152, 238, 170);
     padding: 20px;
     transition: background-color 3s;
     transition: box-shadow 3s;
