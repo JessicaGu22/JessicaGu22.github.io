@@ -47,6 +47,7 @@
 
 .button-press-animation button:active {
     box-shadow: 7px 7px 7px #336fbd;
+    transform: translateY(2px);
   }
 
 /* Task 4: Simple Loading Spinner */
