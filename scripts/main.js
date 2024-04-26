@@ -33,3 +33,25 @@ for (let i = 1; i <= 10; i++) {
     }
     console.log(i + "! =", factorial);
 }
+
+
+console.log("Task 6");
+let arr = [3, 1, 4, 1, 5];
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+
+console.log("Task 7");
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr.at(-i-1));
+}
+
+console.log("Task 8");
+    let arr = [0];
+    for (let i = 1; i <= 10; i++) {
+        cubeNumbers.push(i * i * i);
+      }
+
+
+
+
