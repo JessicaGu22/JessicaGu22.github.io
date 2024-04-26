@@ -47,7 +47,7 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 console.log("Task 8");
-    let arr = [0];
+    let arr [1] = 0 ;
     for (let i = 1; i <= 10; i++) {
         cubeNumbers.push(i * i * i);
       }
