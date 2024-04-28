@@ -17,8 +17,8 @@ for (let i = 2; i <= 50; i += 2) {
 }
 
 console.log("Task 4:");
+let sum = 0;
 for (let i = 1; i <= 100; i++) {
-    let sum = 0;
     sum += i;
 }
 console.log(sum);
@@ -39,8 +39,9 @@ for (let i = 0; i <= 5; i++) {
 
 console.log("Task 7");
 let arr = [3, 1, 4, 1, 5];
-for (let i = 0; i < arr.length; i++) {
-    console.log(arr.at(arr.length - i - 1));
+let lastIndex = arr.length - 1;
+for (let i = lastIndex; i >= 0; i--) {
+    console.log(arr[i]);
 }
 
 console.log("Task 8");
