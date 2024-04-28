@@ -63,8 +63,8 @@ console.log("Task 10");
 let add = {}; 
 for (let i = 0; i < arr.length; i++) { 
     add += arr[i]; 
+    console.log(add); 
 }
-console.log(add); 
 
 
 
