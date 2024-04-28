@@ -6,10 +6,8 @@ for (var i = 0; i < 11; i++) {
 }
 
 console.log("Task 2:");
-let countdown = 5;
-while (countdown > 0) {
-    console.log(countdown);
-    countdown--;
+for (let i = 5; i >= 1; i--) {
+    console.log(i);
 }
 console.log("Blastoff!");
 
@@ -19,8 +17,8 @@ for (let i = 2; i <= 50; i += 2) {
 }
 
 console.log("Task 4:");
-let sum = 0;
 for (let i = 1; i <= 100; i++) {
+    let sum = 0;
     sum += i;
 }
 console.log(sum);
@@ -33,33 +31,35 @@ for (let i = 1; i <= 10; i++) {
 }
 
 console.log("Task 6");
-for (let i = 0; i < arr.length; i++) {
-    let arr = [3, 1, 4, 1, 5];
+for (let i = 0; i <= 5; i++) {
+    let arr = [3, 1, 4, 1, 5]; 
     console.log(arr[i]);
-  }
+}
+
 
 console.log("Task 7");
+let arr = [3, 1, 4, 1, 5];
 for (let i = 0; i < arr.length; i++) {
-    console.log(arr.at(-i-1));
+    console.log(arr.at(arr.length - i - 1));
 }
 
 console.log("Task 8");
-let arr = new Array(); 
 for (let i = 0; i <= 10; i++) {
+    let arr = new Array(); 
     arr.push(i * i * i); 
 }
 console.log(arr); 
 
 console.log("Task 9");
-let fibonacci = [0, 1];
 for (let i = 2; i < 10; i++) {
+    let fibonacci = [0, 1];
     fibonacci.push(fibonacci[i - 1] + fibonacci[i - 2]);
 }
 console.log(fibonacci);
 
 console.log("Task 10");
-let add = []; 
 for (let i = 0; i < 5; i++) {
+    let add = []; 
     let arr = [3, 1, 4, 1, 5];
     add += arr[i];
     console.log(add);
