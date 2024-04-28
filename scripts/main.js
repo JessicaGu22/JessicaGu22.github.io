@@ -45,11 +45,12 @@ for (let i = lastIndex; i >= 0; i--) {
 }
 
 console.log("Task 8");
+let cubeNumbers = [];
 for (let i = 0; i <= 10; i++) {
-    let arr = new Array(); 
-    arr.push(i * i * i); 
+    cubeNumbers.push(i * i * i); 
 }
-console.log(arr); 
+console.log(cubeNumbers); 
+
 
 console.log("Task 9");
 for (let i = 2; i < 10; i++) {
