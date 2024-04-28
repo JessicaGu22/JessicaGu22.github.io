@@ -28,16 +28,13 @@ console.log(sum);
 console.log("Task 5:");
 for (let i = 1; i <= 10; i++) {
     let factorial = 1;
-    for (let j = 1; j <= i; j++) {
-        factorial *= j;
-    }
+    factorial *= i;
     console.log(i + "! =", factorial);
 }
 
-
 console.log("Task 6");
-let arr = [3, 1, 4, 1, 5];
 for (let i = 0; i < arr.length; i++) {
+    let arr = [3, 1, 4, 1, 5];
     console.log(arr[i]);
   }
 
@@ -47,10 +44,35 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 console.log("Task 8");
-    let arr [1] = 0 ;
-    for (let i = 1; i <= 10; i++) {
-        cubeNumbers.push(i * i * i);
-      }
+let arr = new Array(); 
+for (let i = 0; i <= 10; i++) {
+    arr.push(i * i * i); 
+}
+console.log(arr); 
+
+console.log("Task 9");
+let fibonacci = [0, 1];
+for (let i = 2; i < 10; i++) {
+    fibonacci.push(fibonacci[i - 1] + fibonacci[i - 2]);
+}
+console.log(fibonacci);
+
+console.log("Task 10");
+let add = []; 
+for (let i = 0; i < 5; i++) {
+    let arr = [3, 1, 4, 1, 5];
+    add += arr[i];
+    console.log(add);
+}
+
+
+
+
+
+
+
+
+
 
 
 
