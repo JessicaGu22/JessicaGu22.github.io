@@ -48,8 +48,8 @@ console.log("Task 8");
 let cubeNumbers = [];
 for (let i = 0; i <= 10; i++) {
     cubeNumbers.push(i * i * i); 
+    console.log(cubeNumbers); 
 }
-console.log(cubeNumbers); 
 
 
 console.log("Task 9");
