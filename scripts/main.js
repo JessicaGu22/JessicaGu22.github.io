@@ -60,11 +60,11 @@ for (let i = 2; i < 10; i++) {
 console.log(fibonacci);
 
 console.log("Task 10");
-for (let i = 0; i < 5; i++) {
-    let add = []; 
-    let arr = [3, 1, 4, 1, 5];
-    add += arr[i];
-    console.log(add);
+let add = {}; 
+let arr = [3, 1, 4, 1, 5];
+for (let i = 0; i < arr.length; i++) { 
+    add += arr[i]; 
+    console.log(add); 
 }
 
 
