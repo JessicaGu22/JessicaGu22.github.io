@@ -11,7 +11,8 @@ const ul = document.createElement('ul');
 
 arr.forEach(color => {
   const li = document.createElement('li'); 
-  li.textContent = color; 
+  const innerTextOutput = document.getElementById("arr");
+  innerTextOutput.value = arr.innerText;
   ul.appendChild(li); 
 });
 
