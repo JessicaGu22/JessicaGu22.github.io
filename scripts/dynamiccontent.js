@@ -34,7 +34,7 @@ const colors = [
   "brown"
 ];
 
-const colorList = document.getElementById("colorList");
+const colorList = document.createElement("ul");
 
 colors.forEach(color => {
   const listItem = document.createElement("li");
@@ -42,6 +42,7 @@ colors.forEach(color => {
   listItem.style.color = color;
   colorList.appendChild(listItem);
 });
+document.body.appendChild(colorList);
 
 
 
