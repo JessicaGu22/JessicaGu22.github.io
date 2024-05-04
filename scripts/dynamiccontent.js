@@ -5,13 +5,11 @@ const colors = [
   "yellow",
   "orange",
   "purple",
-  "pink",
   "cyan",
   "magenta",
   "lime",
   "teal",
   "lavender",
-  "brown"
 ];
 
 const colorList = document.createElement("ul");
