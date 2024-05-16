@@ -24,11 +24,14 @@ for (let i = 1; i <= 100; i++) {
 console.log(sum);
 
 console.log("Task 5:");
+let factorial = 1;
 for (let i = 1; i <= 10; i++) {
-    let factorial = 1;
     factorial *= i;
     console.log(i + "! =", factorial);
 }
+
+
+
 
 console.log("Task 6");
 for (let i = 0; i <= 5; i++) {
