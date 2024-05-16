@@ -60,7 +60,7 @@ console.log(fibonacci);
 console.log("Task 10");
 let add = {}; 
 for (let i = 0; i < arr.length; i++) { 
-    add += arr[i]; 
+    add.push(arr[i]); 
     console.log(add); 
 }
 
