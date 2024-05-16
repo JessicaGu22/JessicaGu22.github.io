@@ -30,15 +30,11 @@ for (let i = 1; i <= 10; i++) {
     console.log(i + "! =", factorial);
 }
 
-
-
-
 console.log("Task 6");
-for (let i = 0; i <= 5; i++) {
+for (let i = 0; i < 5; i++) {
     let arr = [3, 1, 4, 1, 5]; 
     console.log(arr[i]);
 }
-
 
 console.log("Task 7");
 let arr = [3, 1, 4, 1, 5];
@@ -53,7 +49,6 @@ for (let i = 0; i <= 10; i++) {
     cubeNumbers.push(i * i * i); 
 }
 console.log(cubeNumbers); 
-
 
 console.log("Task 9");
 let fibonacci = [0, 1];
