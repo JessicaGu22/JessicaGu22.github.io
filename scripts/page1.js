@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = "none";
     }
 
-    // Show modal when the page loads
     modal.style.display = "block";
 });
+
+
+
