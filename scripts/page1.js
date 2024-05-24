@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     closeBtn.onclick = function() {
         modal.style.display = "none";
     }
-
     modal.style.display = "block";
 });
 
