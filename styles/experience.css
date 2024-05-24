@@ -1,0 +1,57 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    margin-top: 40px;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.timeline-content {
+    width: 70%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.timeline-date {
+    width: 30%;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+    color: #999;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    order: 2;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    order: 1;
+}
+
+/* Additional Styling */
+/* Add your custom styles for hover effects, animations, and other fancy features */
