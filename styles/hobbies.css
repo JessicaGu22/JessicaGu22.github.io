@@ -98,7 +98,7 @@ a:hover {
 .map {
     margin-top: 20px;
     height: 300px;
-    background-color: #ddd; /* Placeholder for the map */
+    background-color: #ddd; 
     display: flex;
     align-items: center;
     justify-content: center;
