@@ -1,57 +1,113 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+
+header h1 {
     margin: 0;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    color: #ff6600;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ece8c1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+main {
+    padding: 20px;
+}
+
+#hobbies h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hobby {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery {
+    display: flex;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.map {
+    margin-top: 20px;
+    height: 300px;
+    background-color: #ddd; /* Placeholder for the map */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.book-list {
+    list-style: none;
     padding: 0;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+.book-list li {
+    background: #eee;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-/* Timeline Styles */
-.timeline {
-    position: relative;
-    margin-top: 40px;
-}
-
-.timeline-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
-}
-
-.timeline-content {
-    width: 70%;
-    background-color: #f9f9f9;
-    padding: 20px;
+.gallery img {
+    width: 100%;
+    max-width: 300px;
     border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.timeline-date {
-    width: 30%;
-    text-align: center;
-    font-size: 18px;
-    line-height: 40px;
-    color: #999;
-    background-color: #f4f4f4;
-    border-radius: 8px;
+.gallery img:hover {
+    transform: scale(1.1);
 }
 
-.timeline-item:nth-child(even) .timeline-content {
-    order: 2;
+.hobby:nth-child(odd) {
+    background-color: #f0f0f0; 
 }
-
-.timeline-item:nth-child(even) .timeline-date {
-    order: 1;
-}
-
-/* Additional Styling */
-/* Add your custom styles for hover effects, animations, and other fancy features */
