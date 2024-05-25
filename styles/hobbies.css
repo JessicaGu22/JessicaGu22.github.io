@@ -117,25 +117,7 @@ a:hover {
     border-radius: 4px;
 }
 
-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
 
-.icon svg {
-    width: 64px;
-    height: 64px;
-    fill: #ff6600; /* Adjust color as needed */
-    transition: transform 0.3s ease-in-out;
-}
-
-.icon:hover svg {
-    transform: rotate(360deg); /* Example rotation on hover */
-}
-
-/* Colorful Accents */
 .hobby {
     background-color: white;
     margin: 20px 0;
