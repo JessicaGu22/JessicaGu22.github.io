@@ -105,22 +105,11 @@ a:hover {
     border-radius: 8px;
 }
 
-.book-list {
-    list-style: none;
-    padding: 0;
-}
-
-.book-list li {
-    background: #eee;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 4px;
-}
 
 
 .hobby {
     background-color: white;
-    margin: 20px 0;
+    margin: 30px 0;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
