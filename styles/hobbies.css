@@ -116,5 +116,5 @@ a:hover {
 }
 
 .hobby:nth-child(odd) {
-    background-color: #f0f0f0; /* Light gray background for odd sections */
+    background-color: #f0f0f0; 
 }
