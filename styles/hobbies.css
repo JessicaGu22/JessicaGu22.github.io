@@ -118,3 +118,11 @@ a:hover {
 .hobby:nth-child(odd) {
     background-color: #f0f0f0; 
 }
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    }
