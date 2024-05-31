@@ -45,12 +45,29 @@ a:hover {
     border-collapse: collapse;
 }
 
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px 15px;
     text-align: left;
 }
 
 th {
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
 }
