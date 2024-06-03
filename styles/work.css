@@ -1,85 +1,119 @@
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
 }
 
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 header h1 {
   margin: 0;
+  font-size: 2.5em;
+  letter-spacing: 2px;
 }
 
 nav ul {
   list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 nav ul li {
-  display: inline;
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #ffffff;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-a:hover {
-  color: #ff6600;
+nav ul li a:hover {
+  color: #ff6347;
 }
 
-.dropdown {
-  position: absolute; 
-  margin-right: 20px; 
+main {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+.featured {
+  position: relative;
+  width: 100%;
+  height: 90vh; /* Increased height to better fit images */
+  overflow: hidden;
+}
 
-.dropdown-content {
+.slide {
   display: none;
-  position: absolute;
-  background-color: #ece8c1;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Fit the image without cropping */
+}
+
+.slide h2 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 2em;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2em;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }
 
 footer {
   background-color: #333;
-  color: #fff;
+  color: white;
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.gallery {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-    overflow: hidden;
-  }
-  
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .slides img {
-    width: 100%;
-  }
