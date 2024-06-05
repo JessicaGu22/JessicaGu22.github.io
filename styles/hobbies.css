@@ -44,6 +44,7 @@ nav ul li a:hover {
 }
 
 
+
 #hobbies h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -77,8 +78,6 @@ nav ul li a:hover {
 }
 
 
-
-
 .map {
     margin-top: 20px;
     height: 300px;
@@ -100,9 +99,8 @@ nav ul li a:hover {
 }
 
 .hobby:nth-child(odd) {
-    background-color: #f0f0f0; 
+    background-color: #f8daef; 
 }
-
 
 footer {
     background-color: #333;
