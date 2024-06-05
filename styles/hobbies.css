@@ -60,7 +60,7 @@ nav ul li a:hover {
 
 .gallery {
     display: flex;
-    gap: 70px;
+    gap: 120px;
 }
 
 .gallery img {
