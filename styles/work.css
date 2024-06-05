@@ -43,69 +43,52 @@ nav ul li a:hover {
   color: #ff6347;
 }
 
-main {
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+.project-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0; 
 }
 
-.featured {
-  position: relative;
-  width: 100%;
-  height: 90vh; /* Increased height to better fit images */
-  overflow: hidden;
+
+.project-content {
+  background-color: rgba(232, 195, 236, 0.8); 
+  padding: 60px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.slide {
-  display: none;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  position: relative;
+.project-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(189, 0, 148, 0.425);
 }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Fit the image without cropping */
+
+.project-content p {
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.slide h2 {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
-  font-size: 2em;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 5px;
+.project-content:hover p {
+  opacity: 1;
 }
 
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 2em;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+h2 {
+  animation: slideIn 1s ease-out;
 }
 
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
 
 footer {
   background-color: #333;
