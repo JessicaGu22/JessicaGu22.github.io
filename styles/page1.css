@@ -78,17 +78,6 @@ a:hover {
 }
 
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ece8c1;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 .modal {
 display: none;
 position: fixed;
@@ -130,7 +119,7 @@ cursor: pointer;
 }
 
 .Image1 img {
-    width: 100%; 
+    width: 80%; 
     height: 170%; 
     object-fit: cover; 
 }
