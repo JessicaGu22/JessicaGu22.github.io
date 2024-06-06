@@ -96,7 +96,7 @@ main {
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(144, 141, 141, 0.8);
 }
 
 .prev {
