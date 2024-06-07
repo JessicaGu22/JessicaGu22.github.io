@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var gameCard = document.getElementById("game-card");
+    var photoCard = document.getElementById("photo-card");
     var artCard = document.getElementById("art-card");
 
-    gameCard.addEventListener("mouseenter", function() {
-        gameCard.style.backgroundColor = "lavender";
+    photoCard.addEventListener("mouseenter", function() {
+        photoCard.style.backgroundColor = "lavender";
     });
 
-    gameCard.addEventListener("mouseleave", function() {
-        gameCard.style.backgroundColor = "white";
+    photoCard.addEventListener("mouseleave", function() {
+        photoCard.style.backgroundColor = "white";
     });
 
     artCard.addEventListener("mouseenter", function() {

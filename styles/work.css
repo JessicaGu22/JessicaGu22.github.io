@@ -49,8 +49,16 @@ nav ul li a:hover {
   justify-content: center;
   align-items: center;
   margin: 80px 0; 
+  text-decoration: none; 
 }
 
+.project-card:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+.project-card:nth-child(even) {
+  animation-delay: 1s;
+}
 
 .project-content {
   background-color: rgba(232, 195, 236, 0.8); 
@@ -64,7 +72,6 @@ nav ul li a:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(189, 0, 148, 0.425);
 }
-
 
 .project-content p {
   opacity: 0;
@@ -102,9 +109,3 @@ footer {
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-}
