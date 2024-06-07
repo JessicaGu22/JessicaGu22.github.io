@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
 }
 
 header {
@@ -46,39 +46,37 @@ nav ul li a:hover {
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
 }
 
 .container {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 170px auto;
     text-align: center;
 }
 
 input[type="number"] {
-    width: 100px;
-    padding: 5px;
+    width: 150px;
+    padding: 6px;
     margin-right: 10px;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 20px 30px;
     background-color: #f0b5dc;
-    color: #fff;
+    color: #000000;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #f2b0d8;
+    background-color: #f579c3;
 }
+
 
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 20px;
-  }
+    padding: 10px;
+    margin-top: 350px;
+}
