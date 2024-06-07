@@ -43,15 +43,6 @@ nav ul li a:hover {
     color: #ff6347;
 }
 
-
-  footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-  }
-  
-
   table {
     width: 100%;
     border-collapse: collapse;
@@ -82,4 +73,11 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #ddd;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
 }
