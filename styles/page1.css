@@ -65,85 +65,118 @@ a:hover {
     color: #ff6600;
 }
 
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode a {
+    color: #90caf9;
+}
+
 .modal {
-display: none;
-position: fixed;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-background-color: #f5e6f2;
-margin: 15% auto;
-padding: 20px;
-border: 1px solid #888;
-width: 80%;
+    background-color: #f5e6f2;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
 
 .close {
-color: #aaa;
-float: right;
-font-size: 28px;
-font-weight: bold;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-color: #000;
-text-decoration: none;
-cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 
 }
 
 
 .Image1 {
-    position: right; 
+    position: right;
     width: 127%;
-    height: 350px; 
+    height: 350px;
 }
 
 .Image1 img {
-    width: 80%; 
-    height: 170%; 
-    object-fit: cover; 
+    width: 80%;
+    height: 170%;
+    object-fit: cover;
 }
 
 .Image1 .text {
-    position: absolute; 
-    bottom: 20px; 
-    right: 20px; 
-    background-color: rgba(0, 0, 0, 0.5); 
-    padding: 20px; 
-    color: #fff; 
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    color: #fff;
 }
 
 .Image1 .text h1 {
-    font-size: 24px; 
-    margin: 0 0 10px; 
+    font-size: 24px;
+    margin: 0 0 10px;
 }
 
 .Image1 .text p {
-    font-size: 16px; 
-    margin: 0; 
+    font-size: 16px;
+    margin: 0;
 }
 
 .emoji {
-    font-size: 150px; 
-    width: 50px; 
+    font-size: 150px;
+    width: 50px;
     height: 50px;
     margin: auto;
-    animation: spin 2.7s linear infinite; 
-  }
-  
-  @keyframes spin {
-    50% { transform: rotateY(180deg); } 
-  }
-  
-  
-  footer {
+    animation: spin 2.7s linear infinite;
+}
+
+@keyframes spin {
+    50% {
+        transform: rotateY(180deg);
+    }
+}
+
+#typed {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff69b4;
+    font-family: 'Courier New', monospace;
+}
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    background: pink;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+
+
+
+footer {
     background-color: #333;
     color: #fff;
     text-align: center;
