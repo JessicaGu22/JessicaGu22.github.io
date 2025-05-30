@@ -79,11 +79,201 @@ nav ul li a:hover {
     transform: translateY(2px);
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(-45deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF);
+    background-size: 400% 400%;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#contact {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 4rem auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
 form:focus-within {
     background: #cbc3e3;
     color: black;
     padding: 10px;
 }
+
+/* Toggle switch styling */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3.5px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #4D96FF;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(-45deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF);
+    background-size: 400% 400%;
+}
+
+body.dark-mode {
+    background: linear-gradient(-45deg, #1e1e1e, #2c3e50, #1f1f1f, #111);
+    color: #eee;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Chatbox styles */
+#chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+}
+
+#chatbox.dark-mode {
+    background: #222;
+    color: white;
+}
+
+#chat-header {
+    background: #4D96FF;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chat-log {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+#chat-input-area {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+#chat-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+}
+
+#send-btn {
+    background: #4D96FF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    background: #4D96FF;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.user-msg {
+    text-align: right;
+    margin: 5px 0;
+    color: #333;
+}
+
+.bot-msg {
+    text-align: left;
+    margin: 5px 0;
+    color: #4D96FF;
+}
+
+
 
 
 footer {

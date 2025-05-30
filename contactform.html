@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
-    <link rel="stylesheet" href="styles/contactfrom.css"> 
+    <link rel="stylesheet" href="styles/contactfrom.css">
 </head>
+
 <body>
     <header>
         <h1>Jessica Gu</h1>
@@ -38,10 +40,96 @@
             </form>
         </section>
     </main>
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="themeSwitcher">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div id="chatbox">
+        <div id="chat-header">AI Assistant 🤖 <span id="chat-toggle">×</span></div>
+        <div id="chat-log"></div>
+        <div id="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask me anything..." />
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+    <div id="chat-icon">💬</div>
+
+    <script>
+        const chatIcon = document.getElementById("chat-icon");
+        const chatbox = document.getElementById("chatbox");
+        const chatToggle = document.getElementById("chat-toggle");
+        const chatLog = document.getElementById("chat-log");
+        const chatInput = document.getElementById("chat-input");
+        const sendBtn = document.getElementById("send-btn");
+
+        chatIcon.onclick = () => chatbox.style.display = "flex";
+        chatToggle.onclick = () => chatbox.style.display = "none";
+
+        sendBtn.onclick = () => {
+            const userText = chatInput.value.trim();
+            if (userText) {
+                addMessage("You", userText, "user-msg");
+                respondTo(userText);
+                chatInput.value = "";
+            }
+        };
+
+        function addMessage(sender, text, className) {
+            const msg = document.createElement("div");
+            msg.className = className;
+            msg.textContent = `${text}`;
+            chatLog.appendChild(msg);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function respondTo(input) {
+            let response = "I'm just a friendly assistant! 😊";
+
+            const lcInput = input.toLowerCase();
+            if (lcInput.includes("hello") || lcInput.includes("hi")) {
+                response = "Hi there! How can I help you today?";
+            } else if (lcInput.includes("email")) {
+                response = "You can contact me using the form on this page!";
+            } else if (lcInput.includes("name")) {
+                response = "My name is JessiBot. Nice to meet you!";
+            } else if (lcInput.includes("hobbies")) {
+                response = "Jessica loves reading, coding, and drawing!";
+            }
+
+            setTimeout(() => {
+                addMessage("AI", response, "bot-msg");
+            }, 500);
+        }
+    </script>
+
+
+
+    <script>
+        const toggle = document.getElementById('themeSwitcher');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            toggle.checked = true;
+        }
+
+        toggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 
     <footer>
         <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
 
 </body>
+
 </html>
