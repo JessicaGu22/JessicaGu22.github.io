@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<header>
+    <h1>Jessica Gu</h1>
+    <nav>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="contactform.html">Contact Form</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work.html">My Work</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="challenge.html">Challenge</a></li>
+        </ul>
+    </nav>
+</header>
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -86,6 +101,43 @@
 
         #hintsLeft {
             font-style: italic;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347;
         }
     </style>
 </head>
