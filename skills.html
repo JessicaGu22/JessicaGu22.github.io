@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jessica Gu - Personal portfolio</title>
-    <link rel="stylesheet" href="styles/skills.css">  
+    <link rel="stylesheet" href="styles/skills.css">
+    <script src="scripts/skills.js"></script>
+
 </head>
+
 <body>
     <header>
         <h1>Jessica Gu</h1>
@@ -22,41 +26,61 @@
         </nav>
     </header>
     <h2>Skills</h2>
-    <table>
+
+    <div id="skill-controls">
+        <label for="category-filter">Filter by Category:</label>
+        <select id="category-filter">
+            <option value="all">All</option>
+            <option value="Coding">Coding</option>
+            <option value="Creative">Creative</option>
+            <option value="Academic">Academic</option>
+        </select>
+
+        <label for="skill-search">Search:</label>
+        <input type="text" id="skill-search" placeholder="Search skill...">
+    </div>
+
+    <canvas id="skillChart" width="400" height="400"></canvas>
+
+    <table id="skill-table">
         <tr>
             <th>Skill</th>
             <th>Proficiency</th>
+            <th>Category</th>
         </tr>
-        <tr>
+        <tr data-category="Coding">
             <td>HTML</td>
             <td>Advanced</td>
+            <td>Coding</td>
         </tr>
-        <tr>
+        <tr data-category="Coding">
             <td>CSS</td>
             <td>Intermediate</td>
+            <td>Coding</td>
         </tr>
-        <tr>
+        <tr data-category="Coding">
             <td>JavaScript</td>
             <td>Advanced</td>
+            <td>Coding</td>
         </tr>
-        <tr>
+        <tr data-category="Coding">
             <td>Python</td>
             <td>Intermediate</td>
+            <td>Coding</td>
         </tr>
-        <tr>
+        <tr data-category="Academic">
             <td>Geometry</td>
             <td>Advanced</td>
+            <td>Academic</td>
         </tr>
-        <tr>
+        <tr data-category="Creative">
             <td>Baking</td>
             <td>Intermediate</td>
+            <td>Creative</td>
         </tr>
     </table>
-    <footer>
-        <p>&copy; 2024 Jessica Gu. All rights reserved.</p>
-    </footer>
-</body>
+
+
+
 
 </html>
-
-

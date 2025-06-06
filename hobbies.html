@@ -71,10 +71,21 @@
             </section>
 
 
-        </section>
-        <footer>
-            <p>&copy; 2024 Jessica Gu. All rights reserved.</p>
-        </footer>
+            <section id="favorite-picker">
+                <h2>Which Hobby Do You Like Most?</h2>
+                <div class="vote-options">
+                    <button onclick="vote('Photography')">📷 Photography (<span
+                            id="count-Photography">0</span>)</button>
+                    <button onclick="vote('Travel')">✈️ Travel (<span id="count-Travel">0</span>)</button>
+                    <button onclick="vote('Reading')">📖 Reading (<span id="count-Reading">0</span>)</button>
+                    <div id="vote-message" style="margin-top: 10px; font-weight: bold; color: green;"></div>
+                </div>
+            </section>
+
+
+            <footer>
+                <p>&copy; 2024 Jessica Gu. All rights reserved.</p>
+            </footer>
     </main>
 </body>
 
