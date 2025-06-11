@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jessica's Terminal</title>
+    <style>
+        body {
+            background-color: black;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347;
+        }
+
+        #terminal {
+            max-width: 800px;
+            margin: 0 auto;
+            white-space: pre-wrap;
+        }
+
+        .input-line {
+            display: flex;
+        }
+
+        .prompt {
+            margin-right: 5px;
+        }
+
+        #commandInput {
+            background: none;
+            border: none;
+            color: #33ff33;
+            font-family: inherit;
+            font-size: 1em;
+            outline: none;
+            width: 100%;
+        }
+
+        .blinking {
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Jessica Gu</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="contactform.html">Contact Form</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">My Work</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="challenge.html">Challenge</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="terminal">
+        <div>> Welcome to Jessica's Terminal. Type <strong>help</strong> to begin.</div>
+    </div>
+    <div class="input-line">
+        <span class="prompt">> </span>
+        <input type="text" id="commandInput" autofocus autocomplete="off" />
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Jessica Gu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const commandInput = document.getElementById('commandInput');
+        const history = [];
+        let historyIndex = 0;
+
+        const responses = {
+            help: `Available commands:\n- bio\n- hobbies\n- goals\n- clear\n- help`,
+            bio: `Jessica is a student at Redwood High School with a passion for science, coding, and service.`,
+            hobbies: `Jessica enjoys photography, traveling, practicing Wing Chun, and playing the guzheng.`,
+            goals: `Jessica's goals include becoming a doctor, contributing to medical research, and inspiring others.`,
+            clear: 'clear'
+        };
+
+        commandInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                const command = commandInput.value.trim().toLowerCase();
+                history.push(command);
+                historyIndex = history.length;
+                commandInput.value = '';
+
+                const commandLine = `> ${command}`;
+                terminal.innerHTML += `\n${commandLine}`;
+
+                if (command in responses) {
+                    if (command === 'clear') {
+                        terminal.innerHTML = '';
+                    } else {
+                        terminal.innerHTML += `\n${responses[command]}`;
+                    }
+                } else {
+                    terminal.innerHTML += `\nUnknown command: ${command}. Type 'help' for a list of commands.`;
+                }
+
+                terminal.scrollTop = terminal.scrollHeight;
+            } else if (e.key === 'ArrowUp') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    commandInput.value = history[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                if (historyIndex < history.length - 1) {
+                    historyIndex++;
+                    commandInput.value = history[historyIndex];
+                } else {
+                    commandInput.value = '';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
