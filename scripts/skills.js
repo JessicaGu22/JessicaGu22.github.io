@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
+
+
+
     if (categoryFilter && skillSearch) {
         categoryFilter.addEventListener('change', filterSkills);
         skillSearch.addEventListener('input', filterSkills);
@@ -50,6 +54,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
             }
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("darkModeToggle");
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
         });
     }
 });

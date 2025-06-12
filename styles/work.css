@@ -3,11 +3,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f5f5f5;
+  background-color: #f0f4f8;
+  color: #333;
 }
 
 header {
-  background-color: #333;
+  background-color: #4a4e69;
+  /* rich deep purple */
   color: white;
   padding: 20px 0;
   text-align: center;
@@ -40,16 +42,16 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #ff6347;
+  color: #fcbf49;
+  /* soft golden-yellow hover */
 }
-
 
 .project-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 80px 0; 
-  text-decoration: none; 
+  margin: 80px 0;
+  text-decoration: none;
 }
 
 .project-card:nth-child(odd) {
@@ -61,16 +63,18 @@ nav ul li a:hover {
 }
 
 .project-content {
-  background-color: rgba(232, 195, 236, 0.8); 
+  background-color: rgba(255, 255, 255, 0.9);
+  /* soft white card */
   padding: 60px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .project-content:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(189, 0, 148, 0.425);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .project-content p {
@@ -87,6 +91,7 @@ nav ul li a:hover {
     transform: translateX(-100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -98,9 +103,8 @@ h2 {
 }
 
 footer {
-  background-color: #333;
+  background-color: #4a4e69;
   color: #fff;
   text-align: center;
   padding: 10px;
 }
-

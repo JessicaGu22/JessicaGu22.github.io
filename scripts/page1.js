@@ -36,5 +36,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+window.onscroll = () => {
+    scrollTopBtn.style.display = window.scrollY > 150 ? "block" : "none";
+};
+scrollTopBtn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+function updateClock() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+    document.getElementById("clock").textContent = `Local time: ${timeString}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
 
 

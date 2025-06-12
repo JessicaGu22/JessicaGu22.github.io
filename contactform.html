@@ -20,6 +20,7 @@
                 <li><a href="work.html">My Work</a></li>
                 <li><a href="skills.html">Skills</a></li>
                 <li><a href="challenge.html">Challenge</a></li>
+                <li><a href="terminal.html">Terminal</a></li>
             </ul>
         </nav>
     </header>
@@ -86,17 +87,40 @@
         }
 
         function respondTo(input) {
-            let response = "I'm just a friendly assistant! 😊";
-
+            let response = "I'm just a friendly assistant! 😊 Can you try asking me in a different way?";
             const lcInput = input.toLowerCase();
+
             if (lcInput.includes("hello") || lcInput.includes("hi")) {
-                response = "Hi there! How can I help you today?";
-            } else if (lcInput.includes("email")) {
-                response = "You can contact me using the form on this page!";
-            } else if (lcInput.includes("name")) {
-                response = "My name is JessiBot. Nice to meet you!";
-            } else if (lcInput.includes("hobbies")) {
-                response = "Jessica loves reading, coding, and drawing!";
+                response = "Hi there! 😊 I'm JessiBot. What can I do for you today?";
+            }
+            else if (lcInput.includes("name")) {
+                response = "I'm JessiBot, your cheerful AI sidekick!";
+            }
+            else if (lcInput.includes("email")) {
+                response = "You can send a message using the contact form above. 📩";
+            }
+            else if (lcInput.includes("hobbies")) {
+                response = "Jessica enjoys reading 📚, coding 💻, drawing 🎨, and traveling! ✈️";
+            }
+            else if (lcInput.includes("time")) {
+                const now = new Date();
+                response = `Right now it's ${now.toLocaleTimeString()}. ⏰`;
+            }
+            else if (lcInput.includes("date")) {
+                const now = new Date();
+                response = `Today is ${now.toLocaleDateString()}. 📅`;
+            }
+            else if (lcInput.includes("joke")) {
+                response = "Why did the programmer quit their job? Because they didn't get arrays. 😆";
+            }
+            else if (lcInput.includes("fact")) {
+                response = "Did you know honey never spoils? Archaeologists found 3,000-year-old honey that’s still edible! 🐝";
+            }
+            else if (lcInput.includes("thank")) {
+                response = "You're very welcome! 😊 Let me know if I can help with anything else.";
+            }
+            else if (lcInput.includes("bye")) {
+                response = "Bye for now! 👋 Come back if you need anything!";
             }
 
             setTimeout(() => {
