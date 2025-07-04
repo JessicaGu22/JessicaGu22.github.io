@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jessica Gu - Personal portfolio</title>
-    <link rel="stylesheet" href="styles/skills.css">
-    <script src="scripts/skills.js"></script>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jessica Gu - Skills</title>
+    <link rel="stylesheet" href="styles/skills.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="scripts/skills.js"></script>
 </head>
 
-
 <body>
+    <!-- Header -->
     <header>
         <h1>Jessica Gu</h1>
         <nav>
@@ -21,69 +21,76 @@
                 <li><a href="contactform.html">Contact Form</a></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="work.html">My Work</a></li>
-                <li><a href="skills.html">Skills</a></li>
+                <li><a href="skills.html" class="active">Skills</a></li>
                 <li><a href="challenge.html">Challenge</a></li>
                 <li><a href="terminal.html">Terminal</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
     </header>
 
-    <h2>Skills</h2>
+    <!-- Skills Content (will fade in on scroll) -->
+    <div class="fade-section">
+        <h2>Skills</h2>
 
-    <div id="skill-controls">
-        <label for="category-filter">Filter by Category:</label>
-        <select id="category-filter">
-            <option value="all">All</option>
-            <option value="Coding">Coding</option>
-            <option value="Creative">Creative</option>
-            <option value="Academic">Academic</option>
-        </select>
+        <div id="skill-controls">
+            <label for="category-filter">Filter by Category:</label>
+            <select id="category-filter">
+                <option value="all">All</option>
+                <option value="Coding">Coding</option>
+                <option value="Creative">Creative</option>
+                <option value="Academic">Academic</option>
+            </select>
 
-        <label for="skill-search">Search:</label>
-        <input type="text" id="skill-search" placeholder="Search skill...">
+            <label for="skill-search">Search:</label>
+            <input type="text" id="skill-search" placeholder="Search skill..." />
+        </div>
+
+        <canvas id="skillChart" width="400" height="400"></canvas>
+
+        <table id="skill-table">
+            <tr>
+                <th>Skill</th>
+                <th>Proficiency</th>
+                <th>Category</th>
+            </tr>
+            <tr data-category="Coding">
+                <td>HTML</td>
+                <td>Advanced</td>
+                <td>Coding</td>
+            </tr>
+            <tr data-category="Coding">
+                <td>CSS</td>
+                <td>Intermediate</td>
+                <td>Coding</td>
+            </tr>
+            <tr data-category="Coding">
+                <td>JavaScript</td>
+                <td>Advanced</td>
+                <td>Coding</td>
+            </tr>
+            <tr data-category="Coding">
+                <td>Python</td>
+                <td>Intermediate</td>
+                <td>Coding</td>
+            </tr>
+            <tr data-category="Academic">
+                <td>Geometry</td>
+                <td>Advanced</td>
+                <td>Academic</td>
+            </tr>
+            <tr data-category="Creative">
+                <td>Baking</td>
+                <td>Intermediate</td>
+                <td>Creative</td>
+            </tr>
+        </table>
     </div>
 
-
-
-    <canvas id="skillChart" width="400" height="400" style="display: none;"></canvas>
-
-
-    <table id="skill-table">
-        <tr>
-            <th>Skill</th>
-            <th>Proficiency</th>
-            <th>Category</th>
-        </tr>
-        <tr data-category="Coding">
-            <td>HTML</td>
-            <td>Advanced</td>
-            <td>Coding</td>
-        </tr>
-        <tr data-category="Coding">
-            <td>CSS</td>
-            <td>Intermediate</td>
-            <td>Coding</td>
-        </tr>
-        <tr data-category="Coding">
-            <td>JavaScript</td>
-            <td>Advanced</td>
-            <td>Coding</td>
-        </tr>
-        <tr data-category="Coding">
-            <td>Python</td>
-            <td>Intermediate</td>
-            <td>Coding</td>
-        </tr>
-        <tr data-category="Academic">
-            <td>Geometry</td>
-            <td>Advanced</td>
-            <td>Academic</td>
-        </tr>
-        <tr data-category="Creative">
-            <td>Baking</td>
-            <td>Intermediate</td>
-            <td>Creative</td>
-        </tr>
-    </table>
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Jessica Gu. All rights reserved.
+    </footer>
+</body>
 
 </html>

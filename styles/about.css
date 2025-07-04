@@ -52,7 +52,7 @@ main {
 .featured {
     position: relative;
     width: 100%;
-    height: 80vh; 
+    height: 80vh;
     overflow: hidden;
 }
 
@@ -67,7 +67,7 @@ main {
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .slide h2 {
@@ -81,7 +81,8 @@ main {
     border-radius: 5px;
 }
 
-.prev, .next {
+.prev,
+.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -95,7 +96,8 @@ main {
     transition: background-color 0.3s ease;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
     background-color: rgba(144, 141, 141, 0.8);
 }
 
@@ -113,4 +115,68 @@ footer {
     text-align: center;
     padding: 10px;
     margin-top: 15px;
+}
+
+#activities article {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#activities article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5);
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    background: linear-gradient(270deg, #1C3A4F, #c1d2db, #A8C5D9, #C4D8E2);
+    background-size: 800% 800%;
+    animation: gradientBG 20s ease infinite;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #fff;
+    text-shadow: 0 0 5px #6B93A6, 0 0 10px #A8C5D9, 0 0 20px #C4D8E2;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #6B93A6, 0 0 10px #A8C5D9, 0 0 20px #C4D8E2;
+    }
+
+    to {
+        text-shadow: 0 0 20px #C4D8E2, 0 0 30px #A8C5D9, 0 0 40px #6B93A6;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
