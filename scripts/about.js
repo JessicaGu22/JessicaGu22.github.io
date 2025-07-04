@@ -2,22 +2,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // 轮播逻辑
     let index = 0;
     const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
 
     const showSlide = () => {
         slides.forEach((s, i) => s.style.display = i === index ? 'block' : 'none');
     };
 
-    document.querySelector('.prev').onclick = () => {
-        index = (index - 1 + slides.length) % slides.length;
-        showSlide();
-    };
+    if (prevBtn && nextBtn && slides.length > 0) {
+        prevBtn.onclick = () => {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide();
+        };
 
-    document.querySelector('.next').onclick = () => {
-        index = (index + 1) % slides.length;
-        showSlide();
-    };
+        nextBtn.onclick = () => {
+            index = (index + 1) % slides.length;
+            showSlide();
+        };
 
-    showSlide();
+        showSlide();
+    }
 
     // fade-in 滚动渐显逻辑
     const fadeEls = document.querySelectorAll('.fade-in');
@@ -35,3 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', checkFade);
     checkFade();  // 页面加载时立即检查一遍
 });
+
+
+

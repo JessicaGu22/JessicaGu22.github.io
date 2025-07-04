@@ -2,17 +2,54 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jessica Gu - Personal Portfolio</title>
-  <link rel="stylesheet" href="styles/work.css">
-  <script defer src="scripts/work.js"></script>
   <style>
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      padding: 40px;
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f0f4f8;
+      color: #C4D8E2;/
+    }
+
+    header {
+      background-color: #C4D8E2;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #C4D8E2;
     }
 
     .filter-buttons {
@@ -24,16 +61,127 @@
       margin: 0 10px;
       padding: 10px 20px;
       border: none;
-      background-color: #4a4e69;
-      color: white;
+      background-color: #C4D8E2;
+      color: #002147;
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      font-weight: 600;
     }
 
     .filter-buttons button:hover {
-      background-color: #fcbf49;
-      color: #000;
+      background-color: #002147;
+      color: #fff;
+    }
+
+    #gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto 60px auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      background: rgba(196, 216, 226, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 33, 71, 0.15);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      box-shadow: 0 12px 40px rgba(0, 33, 71, 0.35);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay button {
+      background: rgba(255, 255, 255, 0.9);
+      color: #002147;
+      border: none;
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2em;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .overlay button:hover {
+      background-color: #002147;
+      color: #C4D8E2;
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 33, 71, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.hidden {
+      display: none;
+      opacity: 0;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #000;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: #C4D8E2;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+
+    .lightbox .close:hover {
+      color: #fff;
     }
 
     #scrollTopBtn {
@@ -41,19 +189,29 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #4a4e69;
-      color: white;
+      background-color: #C4D8E2;
+      color: #002147;
       border: none;
       padding: 10px 15px;
       border-radius: 50%;
       font-size: 18px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 33, 71, 0.3);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      z-index: 10000;
     }
 
     #scrollTopBtn:hover {
-      background-color: #fcbf49;
-      color: black;
+      background-color: #002147;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #002147;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      user-select: none;
     }
   </style>
 </head>
@@ -81,23 +239,51 @@
     <button onclick="filterProjects('photo')">Photography</button>
   </section>
 
-  <section class="project-grid">
-    <a href="about.html" class="project-card" data-category="art">
-      <div class="project-content">
-        <h2>My Art Work</h2>
-        <p>View my art work</p>
+  <section id="gallery">
+    <div class="gallery-item" data-category="art">
+      <img src="photos/mywork1.JPG" alt="Image 1" />
+      <div class="overlay">
+        <button class="share" title="Copy image link">🔗</button>
+        <button class="like" title="Like">❤️</button>
       </div>
-    </a>
-
-    <a href="hobbies.html#photography" class="project-card" data-category="photo">
-      <div class="project-content">
-        <h2>Photography</h2>
-        <p>View my photography collection</p>
+    </div>
+    <div class="gallery-item" data-category="art">
+      <img src="photos/mywork2.jpg" alt="Image 2" />
+      <div class="overlay">
+        <button class="share" title="Copy image link">🔗</button>
+        <button class="like" title="Like">❤️</button>
       </div>
-    </a>
-
+    </div>
+    <div class="gallery-item" data-category="photo">
+      <img src="photos/mywork3.jpg" alt="Image 3" />
+      <div class="overlay">
+        <button class="share" title="Copy image link">🔗</button>
+        <button class="like" title="Like">❤️</button>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="photo">
+      <img src="photos/mywork4.JPG" alt="Image 4" />
+      <div class="overlay">
+        <button class="share" title="Copy image link">🔗</button>
+        <button class="like" title="Like">❤️</button>
+      </div>
+    </div>
+    <div class="gallery-item" data-category="art">
+      <img src="photos/mywork5.JPG" alt="Image 5" />
+      <div class="overlay">
+        <button class="share" title="Copy image link">🔗</button>
+        <button class="like" title="Like">❤️</button>
+      </div>
+    </div>
   </section>
 
+  <!-- Lightbox放大容器 -->
+  <div id="lightbox" class="lightbox hidden">
+    <span class="close" title="Close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full View" />
+  </div>
+
+  <!-- 返回顶部按钮 -->
   <button onclick="scrollToTop()" id="scrollTopBtn" title="Back to Top">↑</button>
 
   <footer>
@@ -111,16 +297,37 @@
     };
 
     function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
 
     function filterProjects(category) {
-      const cards = document.querySelectorAll('.project-card');
-      cards.forEach(card => {
-        card.style.display = (category === 'all' || card.dataset.category === category) ? 'flex' : 'none';
+      const items = document.querySelectorAll('#gallery .gallery-item');
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
       });
     }
-  </script>
-</body>
 
-</html>
+    document.addEventListener('DOMContentLoaded', () => {
+      const galleryItems = document.querySelectorAll('.gallery-item img');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.querySelector('.lightbox .close');
+
+      galleryItems.forEach(img => {
+        img.addEventListener('click', () => {
+          lightbox.classList.remove('hidden');
+          lightboxImg.src = img.src;
+        });
+      });
+
+      closeBtn.addEventListener('click', () => {
+        lightbox.classList.add('hidden');
+        lightboxImg.src = '';
+      });
