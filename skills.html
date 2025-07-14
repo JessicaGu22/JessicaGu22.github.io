@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Jessica Gu - Skills</title>
     <link rel="stylesheet" href="styles/skills.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -26,65 +26,56 @@
                 <li><a href="terminal.html">Terminal</a></li>
             </ul>
         </nav>
-        <button id="darkModeToggle">Toggle Dark Mode</button>
+        <button id="darkModeToggle" aria-pressed="false" aria-label="Toggle dark mode">Toggle Dark Mode</button>
     </header>
 
-    <!-- Skills Content (will fade in on scroll) -->
-    <div class="fade-section">
+    <!-- Skills Content -->
+    <main class="fade-section">
         <h2>Skills</h2>
 
-        <div id="skill-controls">
+        <!-- Controls: Category filter, search, sort -->
+        <div id="skill-controls" role="region" aria-label="Skill filtering and sorting controls">
             <label for="category-filter">Filter by Category:</label>
-            <select id="category-filter">
-                <option value="all">All</option>
+            <select id="category-filter" name="category-filter">
+                <option value="all" selected>All</option>
                 <option value="Coding">Coding</option>
                 <option value="Creative">Creative</option>
                 <option value="Academic">Academic</option>
             </select>
 
             <label for="skill-search">Search:</label>
-            <input type="text" id="skill-search" placeholder="Search skill..." />
+            <input type="search" id="skill-search" name="skill-search" placeholder="Search skill..." />
+
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select" name="sort-select">
+                <option value="name-asc" selected>Name ↑</option>
+                <option value="name-desc">Name ↓</option>
+                <option value="proficiency-asc">Proficiency ↑</option>
+                <option value="proficiency-desc">Proficiency ↓</option>
+            </select>
+
+            <button id="download-pdf" type="button">Download PDF</button>
         </div>
 
-        <canvas id="skillChart" width="400" height="400"></canvas>
+        <!-- Chart -->
+        <canvas id="skillChart" width="400" height="400" role="img"
+            aria-label="Radar chart showing average proficiency by category"></canvas>
 
-        <table id="skill-table">
-            <tr>
-                <th>Skill</th>
-                <th>Proficiency</th>
-                <th>Category</th>
-            </tr>
-            <tr data-category="Coding">
-                <td>HTML</td>
-                <td>Advanced</td>
-                <td>Coding</td>
-            </tr>
-            <tr data-category="Coding">
-                <td>CSS</td>
-                <td>Intermediate</td>
-                <td>Coding</td>
-            </tr>
-            <tr data-category="Coding">
-                <td>JavaScript</td>
-                <td>Advanced</td>
-                <td>Coding</td>
-            </tr>
-            <tr data-category="Coding">
-                <td>Python</td>
-                <td>Intermediate</td>
-                <td>Coding</td>
-            </tr>
-            <tr data-category="Academic">
-                <td>Geometry</td>
-                <td>Advanced</td>
-                <td>Academic</td>
-            </tr>
-            <tr data-category="Creative">
-                <td>Baking</td>
-                <td>Intermediate</td>
-                <td>Creative</td>
-            </tr>
-        </table>
+        <!-- Skill Cards Container -->
+        <section id="skills-container" aria-live="polite" aria-atomic="true" tabindex="0">
+            <!-- Cards will be dynamically inserted here by JS -->
+        </section>
+    </main>
+
+    <!-- Modal for skill details -->
+    <div id="skillModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="modalSkillName" tabindex="-1">
+        <div class="modal-content">
+            <button class="close" aria-label="Close modal">&times;</button>
+            <h3 id="modalSkillName"></h3>
+            <p id="modalSkillDetails"></p>
+            <div id="modalEndorsements"></div>
+        </div>
     </div>
 
     <!-- Footer -->

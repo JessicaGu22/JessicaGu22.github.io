@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact Me</title>
-    <link rel="stylesheet" href="styles/contactfrom.css">
+    <link rel="stylesheet" href="styles/contactfrom.css" />
+    <script defer src="scripts/contact.js"></script>
 </head>
 
 <body>
@@ -24,136 +25,53 @@
             </ul>
         </nav>
     </header>
+
     <main>
         <section id="contact">
             <h2>Contact Me</h2>
             <form id="contactForm">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required />
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required />
 
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
 
                 <button type="submit">Send</button>
             </form>
+            <div class="toast" id="toast">Message Sent! ✅</div>
+
+            <label for="colorPicker">🎨 Theme Color:</label>
+            <input type="color" id="colorPicker" />
         </section>
     </main>
-    <div class="theme-toggle">
-        <label class="switch">
-            <input type="checkbox" id="themeSwitcher">
-            <span class="slider"></span>
-        </label>
-    </div>
 
+    <!-- Chat UI -->
     <div id="chatbox">
-        <div id="chat-header">AI Assistant 🤖 <span id="chat-toggle">×</span></div>
+        <div id="chat-header">
+            <img src="photos/bot-avatar.png" alt="Bot" class="chat-avatar" />
+            AI Assistant 🤖
+            <span id="chat-toggle" style="cursor:pointer; font-weight:bold;">×</span>
+        </div>
         <div id="chat-log"></div>
         <div id="chat-input-area">
             <input type="text" id="chat-input" placeholder="Ask me anything..." />
+            <input type="file" id="file-upload" />
             <button id="send-btn">Send</button>
         </div>
     </div>
-    <div id="chat-icon">💬</div>
+    <div id="chat-icon" title="Open chat">💬</div>
 
-    <script>
-        const chatIcon = document.getElementById("chat-icon");
-        const chatbox = document.getElementById("chatbox");
-        const chatToggle = document.getElementById("chat-toggle");
-        const chatLog = document.getElementById("chat-log");
-        const chatInput = document.getElementById("chat-input");
-        const sendBtn = document.getElementById("send-btn");
-
-        chatIcon.onclick = () => chatbox.style.display = "flex";
-        chatToggle.onclick = () => chatbox.style.display = "none";
-
-        sendBtn.onclick = () => {
-            const userText = chatInput.value.trim();
-            if (userText) {
-                addMessage("You", userText, "user-msg");
-                respondTo(userText);
-                chatInput.value = "";
-            }
-        };
-
-        function addMessage(sender, text, className) {
-            const msg = document.createElement("div");
-            msg.className = className;
-            msg.textContent = `${text}`;
-            chatLog.appendChild(msg);
-            chatLog.scrollTop = chatLog.scrollHeight;
-        }
-
-        function respondTo(input) {
-            let response = "I'm just a friendly assistant! 😊 Can you try asking me in a different way?";
-            const lcInput = input.toLowerCase();
-
-            if (lcInput.includes("hello") || lcInput.includes("hi")) {
-                response = "Hi there! 😊 I'm JessiBot. What can I do for you today?";
-            }
-            else if (lcInput.includes("name")) {
-                response = "I'm chatBot, your cheerful AI sidekick!";
-            }
-            else if (lcInput.includes("email")) {
-                response = "You can send a message using the contact form above. 📩";
-            }
-            else if (lcInput.includes("hobbies")) {
-                response = "Jessica enjoys reading 📚, coding 💻, drawing 🎨, and traveling! ✈️";
-            }
-            else if (lcInput.includes("time")) {
-                const now = new Date();
-                response = `Right now it's ${now.toLocaleTimeString()}. ⏰`;
-            }
-            else if (lcInput.includes("date")) {
-                const now = new Date();
-                response = `Today is ${now.toLocaleDateString()}. 📅`;
-            }
-            else if (lcInput.includes("joke")) {
-                response = "Why did the programmer quit their job? Because they didn't get arrays. 😆";
-            }
-            else if (lcInput.includes("fact")) {
-                response = "Did you know honey never spoils? Archaeologists found 3,000-year-old honey that’s still edible! 🐝";
-            }
-            else if (lcInput.includes("thank")) {
-                response = "You're very welcome! 😊 Let me know if I can help with anything else.";
-            }
-            else if (lcInput.includes("bye")) {
-                response = "Bye for now! 👋 Come back if you need anything!";
-            }
-
-            setTimeout(() => {
-                addMessage("AI", response, "bot-msg");
-            }, 500);
-        }
-    </script>
-
-
-
-    <script>
-        const toggle = document.getElementById('themeSwitcher');
-        const body = document.body;
-
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-            toggle.checked = true;
-        }
-
-        toggle.addEventListener('change', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
+    <canvas id="confettiCanvas"
+        style="position: fixed; pointer-events: none; top: 0; left: 0; width: 100%; height: 100%; z-index: 9998;"></canvas>
 
     <footer>
         <p>&copy; 2025 Jessica Gu. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 
 </html>

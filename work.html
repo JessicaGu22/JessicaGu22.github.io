@@ -12,7 +12,7 @@
       padding: 0;
       box-sizing: border-box;
       background-color: #f0f4f8;
-      color: #C4D8E2;/
+      color: #333;
     }
 
     header {
@@ -49,7 +49,7 @@
     }
 
     nav ul li a:hover {
-      color: #C4D8E2;
+      color: #002147;
     }
 
     .filter-buttons {
@@ -154,13 +154,10 @@
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      opacity: 1;
-      transition: opacity 0.3s ease;
     }
 
     .lightbox.hidden {
       display: none;
-      opacity: 0;
     }
 
     .lightbox img {
@@ -178,6 +175,7 @@
       cursor: pointer;
       user-select: none;
       transition: color 0.3s ease;
+      font-size: 2rem;
     }
 
     .lightbox .close:hover {
@@ -277,13 +275,11 @@
     </div>
   </section>
 
-  <!-- Lightbox放大容器 -->
   <div id="lightbox" class="lightbox hidden">
     <span class="close" title="Close">&times;</span>
     <img id="lightbox-img" src="" alt="Full View" />
   </div>
 
-  <!-- 返回顶部按钮 -->
   <button onclick="scrollToTop()" id="scrollTopBtn" title="Back to Top">↑</button>
 
   <footer>
@@ -293,41 +289,65 @@
   <script>
     const scrollBtn = document.getElementById("scrollTopBtn");
     window.onscroll = function () {
-      scrollBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+      scrollBtn.style.display =
+        document.body.scrollTop > 100 || document.documentElement.scrollTop > 100
+          ? "block"
+          : "none";
     };
 
     function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function filterProjects(category) {
-      const items = document.querySelectorAll('#gallery .gallery-item');
-      items.forEach(item => {
-        if (category === 'all' || item.dataset.category === category) {
-          item.style.display = 'flex';
-        } else {
-          item.style.display = 'none';
-        }
+      const items = document.querySelectorAll("#gallery .gallery-item");
+      items.forEach((item) => {
+        item.style.display = category === "all" || item.dataset.category === category ? "flex" : "none";
       });
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const galleryItems = document.querySelectorAll('.gallery-item img');
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      const closeBtn = document.querySelector('.lightbox .close');
+    document.addEventListener("DOMContentLoaded", () => {
+      const galleryItems = document.querySelectorAll(".gallery-item img");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.querySelector(".lightbox .close");
 
-      galleryItems.forEach(img => {
-        img.addEventListener('click', () => {
-          lightbox.classList.remove('hidden');
+      galleryItems.forEach((img) => {
+        img.addEventListener("click", () => {
+          lightbox.classList.remove("hidden");
           lightboxImg.src = img.src;
         });
       });
 
-      closeBtn.addEventListener('click', () => {
-        lightbox.classList.add('hidden');
-        lightboxImg.src = '';
+      closeBtn.addEventListener("click", () => {
+        lightbox.classList.add("hidden");
+        lightboxImg.src = "";
       });
+
+      const likeButtons = document.querySelectorAll(".like");
+      likeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (!btn.classList.contains("liked")) {
+            btn.textContent = "💖";
+            btn.classList.add("liked");
+          }
+        });
+      });
+
+      const shareButtons = document.querySelectorAll(".share");
+      shareButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const img = btn.closest(".gallery-item").querySelector("img");
+          navigator.clipboard.writeText(img.src).then(() => {
+            btn.textContent = "✅";
+            setTimeout(() => {
+              btn.textContent = "🔗";
+            }, 1500);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Jessica's Terminal</title>
     <style>
         body {
@@ -13,6 +13,9 @@
             padding: 20px;
             height: 100vh;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         header {
@@ -35,6 +38,7 @@
             display: flex;
             justify-content: center;
             margin: 0;
+            flex-wrap: wrap;
         }
 
         nav ul li {
@@ -54,16 +58,25 @@
 
         #terminal {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             white-space: pre-wrap;
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 2px solid #33ff33;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #000a;
         }
 
         .input-line {
             display: flex;
+            max-width: 800px;
+            margin: 0 auto 20px;
         }
 
         .prompt {
             margin-right: 5px;
+            user-select: none;
         }
 
         #commandInput {
@@ -71,7 +84,7 @@
             border: none;
             color: #33ff33;
             font-family: inherit;
-            font-size: 1em;
+            font-size: 1.2em;
             outline: none;
             width: 100%;
         }
@@ -91,7 +104,8 @@
             color: #fff;
             text-align: center;
             padding: 10px;
-            margin-top: 300px;
+            margin-top: 10px;
+            user-select: none;
         }
     </style>
 </head>
@@ -113,12 +127,12 @@
         </nav>
     </header>
 
-    <div id="terminal">
-        <div>> Welcome to Jessica's Terminal. Type <strong>help</strong> to begin.</div>
+    <div id="terminal" aria-live="polite" aria-label="Terminal output">
+        <div>> Welcome to Jessica's Terminal.<br>Type <strong>help</strong> to see commands.<br></div>
     </div>
     <div class="input-line">
-        <span class="prompt">> </span>
-        <input type="text" id="commandInput" autofocus autocomplete="off" />
+        <span class="prompt">&gt; </span>
+        <input type="text" id="commandInput" autofocus autocomplete="off" aria-label="Terminal command input" />
     </div>
 
     <footer>
@@ -131,35 +145,163 @@
         const history = [];
         let historyIndex = 0;
 
-        const responses = {
-            help: `Available commands:\n- bio\n- hobbies\n- goals\n- clear\n- help`,
-            bio: `Jessica is a student at Redwood High School with a passion for science, coding, and service.`,
-            hobbies: `Jessica enjoys photography, traveling, practicing Wing Chun, and playing the guzheng.`,
-            goals: `Jessica's goals include becoming a doctor, contributing to medical research, and inspiring others.`,
-            clear: 'clear'
+        // Guided tour steps
+        const tourSteps = [
+            "Welcome to Jessica's website! Here you can learn about me step by step.",
+            "First, try 'bio' to learn about me.",
+            "Next, try 'skills' to see what I can do.",
+            "Type 'hobbies' to see what I enjoy in my free time.",
+            "Use 'goals' to understand my ambitions.",
+            "That's the end of the tour! Type 'help' anytime for commands.",
+        ];
+
+        let tourStepIndex = 0;
+        let inTour = false;
+
+        // Mini-game: guess the number 1-10
+        let gameActive = false;
+        let secretNumber = 0;
+        let guesses = 0;
+
+        // Interactive FAQ keywords and thoughtful answers
+        const faq = {
+            "where are you from": "I'm from California, currently a student at Redwood High School.",
+            "what do you study": "I study biology and computer science, with a passion for medical research.",
+            "favorite hobby": "I love photography, traveling, practicing Wing Chun, and playing the guzheng.",
+            "dream job": "My dream job is to become a doctor and contribute to medical research.",
+            "coding skills": "I know HTML, CSS, JavaScript, and Python, and I enjoy building projects.",
+            "how can i contact you": "You can reach me through the Contact Form on this site.",
+            "clear": "Use the 'clear' command to clean the terminal screen."
         };
+
+        function printToTerminal(text) {
+            terminal.innerHTML += '\n' + text;
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function clearTerminal() {
+            terminal.innerHTML = '';
+        }
+
+        function startTour() {
+            inTour = true;
+            tourStepIndex = 0;
+            printToTerminal("> Starting guided tour. Type 'next' to continue or 'exit' to quit.");
+            printToTerminal(tourSteps[tourStepIndex]);
+        }
+
+        function tourNext() {
+            tourStepIndex++;
+            if (tourStepIndex >= tourSteps.length) {
+                printToTerminal("> Tour finished. You can continue exploring or type 'help'.");
+                inTour = false;
+            } else {
+                printToTerminal(tourSteps[tourStepIndex]);
+            }
+        }
+
+        function startGame() {
+            gameActive = true;
+            secretNumber = Math.floor(Math.random() * 10) + 1;
+            guesses = 0;
+            printToTerminal("> Guess the secret number between 1 and 10! Type your guess.");
+        }
+
+        function processGameInput(input) {
+            guesses++;
+            const guess = parseInt(input, 10);
+            if (isNaN(guess) || guess < 1 || guess > 10) {
+                printToTerminal("> Please enter a number between 1 and 10.");
+                return;
+            }
+            if (guess === secretNumber) {
+                printToTerminal(`> 🎉 Correct! You guessed it in ${guesses} tries.`);
+                gameActive = false;
+            } else if (guess < secretNumber) {
+                printToTerminal("> Too low! Try again.");
+            } else {
+                printToTerminal("> Too high! Try again.");
+            }
+        }
+
+        function handleCommand(command) {
+            if (inTour) {
+                if (command === 'next') {
+                    tourNext();
+                    return;
+                } else if (command === 'exit') {
+                    printToTerminal("> Exiting tour. You can type other commands now.");
+                    inTour = false;
+                    return;
+                } else {
+                    printToTerminal("> You're in a tour! Type 'next' to continue or 'exit' to quit.");
+                    return;
+                }
+            }
+
+            if (gameActive) {
+                processGameInput(command);
+                return;
+            }
+
+            switch (command) {
+                case 'help':
+                    printToTerminal(`Available commands:
+- bio: Learn about Jessica
+- skills: See Jessica's skills
+- hobbies: See what Jessica enjoys
+- goals: Learn about Jessica's ambitions
+- tour: Start a guided tour
+- faq: Ask a question (e.g. "Where are you from?")
+- game: Play a number guessing game
+- clear: Clear the terminal screen
+- help: Show this help message`);
+                    break;
+                case 'bio':
+                    printToTerminal("Jessica is a student at Redwood High School passionate about science, coding, and service.");
+                    break;
+                case 'skills':
+                    printToTerminal("Skills:\n- HTML, CSS, JavaScript, Python\n- Data analysis\n- Biomedical research projects");
+                    break;
+                case 'hobbies':
+                    printToTerminal("Hobbies:\n- Photography\n- Traveling\n- Wing Chun martial arts\n- Playing the guzheng");
+                    break;
+                case 'goals':
+                    printToTerminal("Goals:\n- Become a doctor\n- Contribute to medical research\n- Inspire others");
+                    break;
+                case 'tour':
+                    startTour();
+                    break;
+                case 'faq':
+                    printToTerminal("> Type a question related to me, e.g., 'Where are you from?'");
+                    break;
+                case 'game':
+                    startGame();
+                    break;
+                case 'clear':
+                    clearTerminal();
+                    break;
+                default:
+                    // Check FAQ for keywords in command (basic keyword matching)
+                    const foundFAQ = Object.keys(faq).find(key => command.includes(key));
+                    if (foundFAQ) {
+                        printToTerminal(faq[foundFAQ]);
+                    } else {
+                        printToTerminal(`Unknown command: ${command}. Type 'help' for a list of commands.`);
+                    }
+                    break;
+            }
+        }
 
         commandInput.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
                 const command = commandInput.value.trim().toLowerCase();
+                if (!command) return;
                 history.push(command);
                 historyIndex = history.length;
                 commandInput.value = '';
-
-                const commandLine = `> ${command}`;
-                terminal.innerHTML += `\n${commandLine}`;
-
-                if (command in responses) {
-                    if (command === 'clear') {
-                        terminal.innerHTML = '';
-                    } else {
-                        terminal.innerHTML += `\n${responses[command]}`;
-                    }
-                } else {
-                    terminal.innerHTML += `\nUnknown command: ${command}. Type 'help' for a list of commands.`;
-                }
-
-                terminal.scrollTop = terminal.scrollHeight;
+                printToTerminal(`> ${command}`);
+                handleCommand(command);
             } else if (e.key === 'ArrowUp') {
                 if (historyIndex > 0) {
                     historyIndex--;

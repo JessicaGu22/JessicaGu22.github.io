@@ -1,53 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<header>
-    <h1>Jessica Gu</h1>
-    <nav>
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="hobbies.html">Hobbies</a></li>
-            <li><a href="contactform.html">Contact Form</a></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="work.html">My Work</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="challenge.html">Challenge</a></li>
-            <li><a href="terminal.html">Terminal</a></li>
-        </ul>
-    </nav>
-</header>
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jessica Gu - Number Guessing Game</title>
+    <title>Jessica Gu - Science Guessing Game</title>
     <style>
-        header h1 {
-            text-align: center;
+        /* Reset and basics */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #111;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        input,
-        button,
-        select {
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Header */
+        #main-header {
+            background: #0b3d91;
+            color: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #main-header>div {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #main-header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+        }
+
+        #themeToggle {
+            background: none;
+            border: none;
+            color: #f28c28;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        #main-header nav ul {
+            max-width: 1200px;
+            margin: 10px auto 0 auto;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        #main-header nav ul li a {
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        #main-header nav ul li a:hover {
+            color: #f28c28;
+        }
+
+        /* Sub Navigation */
+        #sub-nav {
+            background: #f28c28;
+            padding: 8px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #sub-nav ul {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        #sub-nav ul li a {
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        #sub-nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* Content styles */
+        main {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        button {
             font-size: 1.2em;
             padding: 10px;
-            margin: 5px 0;
+            margin-top: 5px;
             width: 100%;
             box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #0b3d91;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #f28c28;
         }
 
         #guessField {
             font-size: 1.5em;
         }
 
-        button {
-            cursor: pointer;
-        }
-
         #message {
             font-weight: bold;
-            margin: 10px 0;
-            min-height: 1.2em;
+            margin: 15px 0;
+            min-height: 1.4em;
         }
 
         table {
@@ -83,153 +181,256 @@
             }
         }
 
-        #leaderboard {
-            margin-top: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
+        /* Timer */
+        #timerDisplay {
             margin-top: 15px;
-        }
-
-        #hintsLeft {
-            font-style: italic;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 2px;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
             font-weight: bold;
-            transition: color 0.3s ease;
+            text-align: right;
+            font-size: 1.1em;
         }
 
-        nav ul li a:hover {
-            color: #ff6347;
+        /* Dark theme */
+        body.dark {
+            background-color: #121212;
+            color: #eee;
+        }
+
+        body.dark a {
+            color: #f28c28;
+        }
+
+        body.dark #main-header {
+            background: #222f5b;
+            color: #f28c28;
+        }
+
+        body.dark #main-header nav ul li a {
+            color: #f28c28;
+        }
+
+        body.dark #main-header nav ul li a:hover {
+            color: #fff;
+        }
+
+        body.dark #sub-nav {
+            background: #444;
+        }
+
+        body.dark #sub-nav ul li a {
+            color: #f28c28;
+        }
+
+        body.dark #sub-nav ul li a:hover {
+            opacity: 1;
+        }
+
+        body.dark button {
+            background-color: #222f5b;
+            color: #f28c28;
+        }
+
+        body.dark button:hover:not(:disabled) {
+            background-color: #fff;
+            color: #222f5b;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Number Guessing Game</h1>
+    <!-- Big main navigation bar -->
+    <header id="main-header">
+        <div>
+            <h1>Jessica Gu</h1>
+            <button id="themeToggle" title="Toggle dark/light theme">🌓 Theme</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="contactform.html">Contact</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="challenge.html">Challenge</a></li>
+                <li><a href="terminal.html">Terminal</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <label for="playerName">Enter your nickname:</label>
-    <input type="text" id="playerName" placeholder="Your name" />
 
-    <label for="difficulty">Choose difficulty level:</label>
-    <select id="difficulty">
-        <option value="50">Easy (1-50)</option>
-        <option value="100" selected>Medium (1-100)</option>
-        <option value="200">Hard (1-200)</option>
-    </select>
+    <main>
+        <label for="playerName">Enter your nickname:</label>
+        <input type="text" id="playerName" placeholder="Your name" />
 
-    <p>Guess a number between <span id="minRange">1</span> and <span id="maxRange">100</span>:</p>
-    <input type="number" id="guessField" />
-    <button id="submitGuessBtn">Submit Guess</button>
+        <label for="gameMode">Choose game mode:</label>
+        <select id="gameMode">
+            <option value="year" selected>Guess Scientist's Birth Year</option>
+            <option value="term">Guess Scientific Term</option>
+        </select>
 
-    <p id="message"></p>
+        <label for="difficulty">Choose difficulty level:</label>
+        <select id="difficulty">
+            <option value="easy" selected>Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
 
-    <button id="hintBtn">Get Hint (-1 attempt)</button> <span id="hintsLeft"></span>
+        <p id="instructions" style="margin-top:20px;">Guess the birth year between 1500 and 2000:</p>
 
-    <h3>Previous Guesses</h3>
-    <table id="guessTable">
-        <thead>
-            <tr>
-                <th>Guess</th>
-                <th>Result</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        <input type="text" id="guessField" autocomplete="off" />
+        <button id="submitGuessBtn">Submit Guess</button>
 
-    <div id="timerDisplay">Time: 0s</div>
+        <p id="message"></p>
 
-    <h3>Leaderboard - Top 5 Scores</h3>
-    <table id="leaderboard">
-        <thead>
-            <tr>
-                <th>Player</th>
-                <th>Attempts</th>
-                <th>Time (s)</th>
-                <th>Difficulty</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        <button id="hintBtn">Get Hint (-1 attempt)</button> <span id="hintsLeft"></span>
 
-    <footer style="text-align:center; margin-top: 30px;">
+        <h3>Previous Guesses</h3>
+        <table id="guessTable" aria-label="Previous guesses table">
+            <thead>
+                <tr>
+                    <th>Guess</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div id="timerDisplay">Time: 0s</div>
+
+        <h3 id="leaderboard">Leaderboard - Top 5 Scores</h3>
+        <table id="leaderboardTable" aria-label="Leaderboard table">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Attempts</th>
+                    <th>Time (s)</th>
+                    <th>Mode</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+
+    <footer style="text-align:center; margin: 40px 0 20px;">
         <p>&copy; 2024 Jessica Gu. All rights reserved.</p>
     </footer>
 
     <script>
+        // Theme toggle
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            // Optional: Save theme preference
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme on page load
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+        }
+
+        // Game logic
         document.addEventListener("DOMContentLoaded", () => {
             const playerNameInput = document.getElementById('playerName');
+            const gameModeSelect = document.getElementById('gameMode');
             const difficultySelect = document.getElementById('difficulty');
-            const maxRangeSpan = document.getElementById('maxRange');
-            const minRange = 1;
-
+            const instructionsEl = document.getElementById('instructions');
             const guessField = document.getElementById('guessField');
             const submitGuessBtn = document.getElementById('submitGuessBtn');
             const messageEl = document.getElementById('message');
             const guessTableBody = document.querySelector('#guessTable tbody');
-            const leaderboardBody = document.querySelector('#leaderboard tbody');
+            const leaderboardBody = document.querySelector('#leaderboardTable tbody');
             const timerDisplay = document.getElementById('timerDisplay');
             const hintBtn = document.getElementById('hintBtn');
             const hintsLeftSpan = document.getElementById('hintsLeft');
 
-            let maxRange = 100;
             let maxAttempts = 10;
             let attempts = 0;
-            let secretNumber = 0;
+            let secretAnswer = null;
             let guesses = [];
             let hintsLeft = 3;
             let timer = null;
             let secondsElapsed = 0;
 
+            const scientists = [
+                { name: 'Isaac Newton', year: 1643 },
+                { name: 'Albert Einstein', year: 1879 },
+                { name: 'Marie Curie', year: 1867 },
+                { name: 'Galileo Galilei', year: 1564 },
+                { name: 'Nikola Tesla', year: 1856 },
+                { name: 'Charles Darwin', year: 1809 },
+                { name: 'Ada Lovelace', year: 1815 },
+                { name: 'Rosalind Franklin', year: 1920 },
+                { name: 'Louis Pasteur', year: 1822 },
+                { name: 'Richard Feynman', year: 1918 },
+            ];
+
+            const scientificTerms = [
+                'atom',
+                'molecule',
+                'photosynthesis',
+                'gravity',
+                'electron',
+                'enzyme',
+                'quantum',
+                'osmosis',
+                'neuron',
+                'chlorophyll'
+            ];
+
+            let termToGuess = '';
+            let displayedTerm = [];
+            let guessedLetters = [];
+
             function resetGame() {
-                maxRange = parseInt(difficultySelect.value);
-                maxRangeSpan.textContent = maxRange;
-                maxAttempts = maxRange <= 50 ? 7 : maxRange <= 100 ? 10 : 15;
                 attempts = 0;
                 guesses = [];
                 hintsLeft = 3;
                 secondsElapsed = 0;
-                secretNumber = Math.floor(Math.random() * maxRange) + 1;
-                guessField.value = '';
                 messageEl.textContent = '';
-                hintsLeftSpan.textContent = `Hints left: ${hintsLeft}`;
                 guessTableBody.innerHTML = '';
+                hintsLeftSpan.textContent = `Hints left: ${hintsLeft}`;
                 timerDisplay.textContent = `Time: 0s`;
                 submitGuessBtn.disabled = false;
                 hintBtn.disabled = false;
+                guessField.value = '';
+                guessedLetters = [];
+                displayedTerm = [];
+
+                if (gameModeSelect.value === 'year') {
+                    let candidates;
+                    switch (difficultySelect.value) {
+                        case 'easy':
+                            candidates = scientists.filter(s => s.year >= 1700 && s.year <= 1900);
+                            maxAttempts = 10;
+                            break;
+                        case 'medium':
+                            candidates = scientists.filter(s => s.year >= 1600 && s.year <= 1950);
+                            maxAttempts = 8;
+                            break;
+                        case 'hard':
+                            candidates = scientists;
+                            maxAttempts = 6;
+                            break;
+                    }
+                    secretAnswer = candidates[Math.floor(Math.random() * candidates.length)];
+                    instructionsEl.textContent = `Guess the birth year of ${secretAnswer.name} between 1500 and 2000:`;
+                    guessField.type = 'number';
+                    guessField.min = 1500;
+                    guessField.max = 2000;
+                    guessField.placeholder = 'Enter a year (e.g. 1879)';
+                } else {
+                    maxAttempts = difficultySelect.value === 'easy' ? 15 : difficultySelect.value === 'medium' ? 10 : 7;
+                    termToGuess = scientificTerms[Math.floor(Math.random() * scientificTerms.length)].toLowerCase();
+                    displayedTerm = Array(termToGuess.length).fill('_');
+                    instructionsEl.textContent = `Guess the scientific term letter by letter: ${displayedTerm.join(' ')}`;
+                    guessField.type = 'text';
+                    guessField.placeholder = 'Enter a letter';
+                }
                 startTimer();
             }
 
@@ -259,17 +460,23 @@
                 }
 
                 let hint = '';
-                if (secretNumber % 2 === 0) {
-                    hint = 'The number is even.';
-                } else {
-                    hint = 'The number is odd.';
-                }
 
-                if (Math.random() > 0.5) {
-                    const divisors = [2, 3, 5];
-                    let divisor = divisors[Math.floor(Math.random() * divisors.length)];
-                    if (secretNumber % divisor === 0) {
-                        hint += ` It is divisible by ${divisor}.`;
+                if (gameModeSelect.value === 'year') {
+                    hint = secretAnswer.year % 2 === 0 ? 'The birth year is even.' : 'The birth year is odd.';
+                    const mid = 1750;
+                    hint += secretAnswer.year > mid ? ` It is after ${mid}.` : ` It is before ${mid}.`;
+                } else {
+                    const unrevealedIndexes = [];
+                    for (let i = 0; i < termToGuess.length; i++) {
+                        if (displayedTerm[i] === '_') unrevealedIndexes.push(i);
+                    }
+                    if (unrevealedIndexes.length > 0) {
+                        const revealIndex = unrevealedIndexes[Math.floor(Math.random() * unrevealedIndexes.length)];
+                        displayedTerm[revealIndex] = termToGuess[revealIndex];
+                        hint = `Letter revealed: ${termToGuess[revealIndex]}`;
+                        instructionsEl.textContent = `Guess the scientific term letter by letter: ${displayedTerm.join(' ')}`;
+                    } else {
+                        hint = 'No more letters to reveal!';
                     }
                 }
 
@@ -291,86 +498,140 @@
 
             function checkGuess() {
                 const player = playerNameInput.value.trim() || 'Player';
-                const guess = Number(guessField.value);
-                if (!guess || guess < minRange || guess > maxRange) {
-                    messageEl.textContent = `Please enter a number between ${minRange} and ${maxRange}.`;
-                    return;
-                }
+                const guessRaw = guessField.value.trim().toLowerCase();
 
-                attempts++;
-                if (attempts > maxAttempts) {
-                    endGame(false);
-                    return;
-                }
+                if (gameModeSelect.value === 'year') {
+                    const guess = Number(guessRaw);
+                    if (!guess || guess < 1500 || guess > 2000) {
+                        messageEl.textContent = 'Please enter a valid year between 1500 and 2000.';
+                        return;
+                    }
+                    if (guesses.includes(guess)) {
+                        messageEl.textContent = `You already guessed ${guess}! Try a different year.`;
+                        return;
+                    }
 
-                if (guesses.includes(guess)) {
-                    messageEl.textContent = `You already guessed ${guess}! Try a different number.`;
-                    return;
-                }
+                    attempts++;
+                    if (attempts > maxAttempts) {
+                        endGame(false);
+                        return;
+                    }
+                    guesses.push(guess);
 
-                guesses.push(guess);
+                    if (guess === secretAnswer.year) {
+                        messageEl.textContent = `🎉 Congrats ${player}! You guessed the birth year of ${secretAnswer.name} (${secretAnswer.year}) in ${attempts} attempts and ${secondsElapsed} seconds!`;
+                        updateGuessTable(guess, 'Correct!');
+                        endGame(true, player, attempts, secondsElapsed, 'Year Guessing');
+                    } else if (guess > secretAnswer.year) {
+                        messageEl.textContent = 'Too high! Try again.';
+                        updateGuessTable(guess, 'Too high');
+                    } else {
+                        messageEl.textContent = 'Too low! Try again.';
+                        updateGuessTable(guess, 'Too low');
+                    }
 
-                if (guess === secretNumber) {
-                    messageEl.textContent = `🎉 Congrats ${player}! You guessed the number in ${attempts} attempts and ${secondsElapsed} seconds!`;
-                    updateGuessTable(guess, 'Correct!');
-                    endGame(true, player, attempts, secondsElapsed, difficultySelect.options[difficultySelect.selectedIndex].text);
-                } else if (guess > secretNumber) {
-                    messageEl.textContent = 'Too high! Try again.';
-                    updateGuessTable(guess, 'Too high');
+                    if (attempts >= maxAttempts && guess !== secretAnswer.year) {
+                        endGame(false);
+                    }
                 } else {
-                    messageEl.textContent = 'Too low! Try again.';
-                    updateGuessTable(guess, 'Too low');
-                }
+                    if (guessRaw.length !== 1 || !guessRaw.match(/[a-z]/i)) {
+                        messageEl.textContent = 'Please enter a single letter (a-z).';
+                        return;
+                    }
+                    if (guessedLetters.includes(guessRaw)) {
+                        messageEl.textContent = `You already guessed the letter "${guessRaw.toUpperCase()}". Try a different letter.`;
+                        return;
+                    }
 
-                if (attempts >= maxAttempts && guess !== secretNumber) {
-                    endGame(false);
+                    attempts++;
+                    if (attempts > maxAttempts) {
+                        endGame(false);
+                        return;
+                    }
+
+                    guessedLetters.push(guessRaw);
+
+                    let correctGuess = false;
+                    for (let i = 0; i < termToGuess.length; i++) {
+                        if (termToGuess[i] === guessRaw) {
+                            displayedTerm[i] = guessRaw;
+                            correctGuess = true;
+                        }
+                    }
+
+                    instructionsEl.textContent = `Guess the scientific term letter by letter: ${displayedTerm.join(' ')}`;
+
+                    if (correctGuess) {
+                        messageEl.textContent = `Good job! The letter "${guessRaw.toUpperCase()}" is in the word.`;
+                        updateGuessTable(guessRaw.toUpperCase(), 'Correct letter');
+                    } else {
+                        messageEl.textContent = `Sorry, the letter "${guessRaw.toUpperCase()}" is not in the word.`;
+                        updateGuessTable(guessRaw.toUpperCase(), 'Incorrect letter');
+                    }
+
+                    if (!displayedTerm.includes('_')) {
+                        messageEl.textContent = `🎉 Congrats ${player}! You guessed the term "${termToGuess.toUpperCase()}" in ${attempts} attempts and ${secondsElapsed} seconds!`;
+                        endGame(true, player, attempts, secondsElapsed, 'Term Guessing');
+                    }
+
+                    if (attempts >= maxAttempts && displayedTerm.includes('_')) {
+                        endGame(false);
+                    }
                 }
                 guessField.value = '';
+                guessField.focus();
             }
 
-            function endGame(won, player = '', attemptsUsed = 0, timeTaken = 0, difficulty = '') {
+            function endGame(won, player = '', attemptsUsed = 0, timeTaken = 0, mode = '') {
                 submitGuessBtn.disabled = true;
                 hintBtn.disabled = true;
                 stopTimer();
                 if (!won) {
-                    messageEl.textContent = `Game Over! The number was ${secretNumber}.`;
+                    if (gameModeSelect.value === 'year') {
+                        messageEl.textContent = `Game Over! The correct birth year of ${secretAnswer.name} was ${secretAnswer.year}.`;
+                    } else {
+                        messageEl.textContent = `Game Over! The term was "${termToGuess.toUpperCase()}".`;
+                    }
                 } else {
-                    saveScore(player, attemptsUsed, timeTaken, difficulty);
+                    saveScore(player, attemptsUsed, timeTaken, mode);
                 }
             }
 
-            function saveScore(player, attemptsUsed, timeTaken, difficulty) {
-                let scores = JSON.parse(localStorage.getItem('guessingGameScores')) || [];
-                scores.push({ player, attempts: attemptsUsed, time: timeTaken, difficulty });
+            function saveScore(player, attemptsUsed, timeTaken, mode) {
+                let scores = JSON.parse(localStorage.getItem('scienceGameScores')) || [];
+                scores.push({ player, attempts: attemptsUsed, time: timeTaken, mode });
                 scores.sort((a, b) => a.attempts - b.attempts || a.time - b.time);
                 scores = scores.slice(0, 5);
-                localStorage.setItem('guessingGameScores', JSON.stringify(scores));
+                localStorage.setItem('scienceGameScores', JSON.stringify(scores));
                 renderLeaderboard(scores);
             }
 
             function renderLeaderboard(scores) {
                 leaderboardBody.innerHTML = '';
-                scores.forEach(({ player, attempts, time, difficulty }) => {
+                scores.forEach(({ player, attempts, time, mode }) => {
                     const row = document.createElement('tr');
                     row.classList.add('animate');
                     row.innerHTML = `
-        <td>${player}</td>
-        <td>${attempts}</td>
-        <td>${time}</td>
-        <td>${difficulty}</td>
-      `;
+            <td>${player}</td>
+            <td>${attempts}</td>
+            <td>${time}</td>
+            <td>${mode}</td>
+          `;
                     leaderboardBody.appendChild(row);
                 });
             }
 
             submitGuessBtn.addEventListener('click', checkGuess);
-            guessField.addEventListener('keypress', e => { if (e.key === 'Enter') checkGuess(); });
-
+            guessField.addEventListener('keypress', e => {
+                if (e.key === 'Enter') checkGuess();
+            });
             hintBtn.addEventListener('click', giveHint);
 
             difficultySelect.addEventListener('change', resetGame);
+            gameModeSelect.addEventListener('change', resetGame);
 
-            const savedScores = JSON.parse(localStorage.getItem('guessingGameScores')) || [];
+            // Load leaderboard from localStorage
+            const savedScores = JSON.parse(localStorage.getItem('scienceGameScores')) || [];
             renderLeaderboard(savedScores);
 
             resetGame();
